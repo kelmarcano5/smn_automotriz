@@ -1,0 +1,55 @@
+<!--data grid-->
+<table class="datagrid" style="width:95%;">
+
+	<col width='3%'/>
+	<col width='3%'/>
+	<col width='3%'/>
+	<col width='3%'/>
+	<col width='20%'/>
+	<col width='20%'/>
+	<col width='20%'/>
+	<col width='20%'/>
+	<col width='20%'/>
+	<col width='3%'/>
+
+
+	<!--toolbar-->
+	<tr>
+		<th colspan="11" id="encabezado_tabla">
+			${req:controls} 
+		</th>
+	</tr>
+
+	<!--encabezados-->
+	<tr>
+		<th></th>
+		<th>VR</th>
+		<th>GP</th>
+		<th>RV</th>
+		<th class='sortable' onclick='sortBy("smn_ingresos_id","query-smndiagnosticocabauto.sql")'>${lbl:b_income}</th>
+		<th class='sortable' onclick='sortBy("smn_clase_auxiliar_rf_combo","query-smndiagnosticocabauto.sql")'>${lbl:b_auxiliary_class}</th>
+		<th class='sortable' onclick='sortBy("smn_auxiliar_rf_combo","query-smndiagnosticocabauto.sql")'>${lbl:b_auxiliary}</th>
+		<th class='sortable' onclick='sortBy("smn_auxiliar_rf_prest","query-smndiagnosticocabauto.sql")'>Prestador de Servicio</th>
+		<th class='sortable' onclick='sortBy("dia_estatus_combo","query-smndiagnosticocabauto.sql")'>${lbl:b_status}</th>
+		<th class='sortable' onclick='sortBy("dia_fecha_registro","query-smndiagnosticocabauto.sql")'>${lbl:b_store_date}</th>
+		<!-- <th>DT</th> -->
+	</tr>
+
+	<!--data-->
+	<rows>
+	<tr>
+		<td><img src="${def:context}/images/search.png"  onclick="getDetail('${fld:smn_diagnostico_cab_auto_id}')" title="${lbl:b_view_detail}"></td>
+		<td><img src="${def:context}/images/search.png"  onclick="openPDF_factura('${fld:smn_diagnostico_cab_auto_id}')" title="Ver Reporte"></td>
+		<td><img src="${def:context}/images/icongrid/Generar.png" onclick="generar('${fld:smn_ingresos_id}','${fld:dia_estatus_combo}')" title="Generar Presupuesto"></td>
+		<td><img src="${def:context}/images/icongrid/Reversar.png" onclick="reversarRecord('${fld:smn_diagnostico_cab_auto_id}','${fld:smn_ingresos_id}')" title="Reversar Diagnostico"></td>
+		<td>${fld:igs_num_ingreso}</td>
+		<td>${fld:smn_clase_auxiliar_rf_combo}</td>
+		<td>${fld:smn_auxiliar_rf_combo}</td>
+		<td>${fld:smn_auxiliar_rf_prest}</td>
+		<td align='center'>${fld:dia_estatus_combo}</td>
+		<td>${fld:dia_fecha_registro@dd-MM-yyyy}</td>
+		<!-- <td><img src="${def:context}/images/icongrid/Detalle-impuesto.png" onclick="detalle('${fld:smn_diagnostico_cab_auto_id}','${fld:descripcion_sintoma}','${fld:dia_estatus_combo}')" title="${lbl:b_diagnostig_det}"></td> -->
+	</tr>
+	</rows>
+
+</table>

@@ -1,0 +1,2 @@
+select * from smn_automotriz.smn_observaciones
+inner join smn_base.smn_ingresos on smn_base.smn_ingresos.smn_observaciones_ingresos_id = smn_automotriz.smn_observaciones.smn_observaciones_id

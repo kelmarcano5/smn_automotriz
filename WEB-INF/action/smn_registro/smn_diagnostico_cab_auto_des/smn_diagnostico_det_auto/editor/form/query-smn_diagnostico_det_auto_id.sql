@@ -1,0 +1,1 @@
+select smn_automotriz.smn_diagnostico_det_auto.smn_diagnostico_det_auto_id as id, smn_automotriz.smn_diagnostico_det_auto.smn_diagnostico_det_auto_id as item from smn_automotriz.smn_diagnostico_det_auto

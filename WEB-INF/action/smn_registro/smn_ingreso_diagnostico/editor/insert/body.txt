@@ -1,0 +1,8 @@
+<html>
+	<body style="background-color:#e1e1e1">
+		<center>
+		<img src="cid:logo-dinamica.png" align="left">
+		<h2>Prueba</h2>
+		</center>
+	</body>
+</html>

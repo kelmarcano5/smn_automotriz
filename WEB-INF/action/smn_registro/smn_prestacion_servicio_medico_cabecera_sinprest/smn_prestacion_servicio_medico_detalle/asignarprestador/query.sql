@@ -1,0 +1,5 @@
+UPDATE smn_automotriz.smn_prestacion_servicio_medico_cabecera SET
+	smn_prestador_servicio_rf=(select smn_base.smn_prestadores_servicios.smn_prestadores_servicios_id from smn_base.smn_rel_grupo_prestador_servicio inner join smn_base.smn_prestadores_servicios on smn_base.smn_prestadores_servicios.smn_prestadores_servicios_id = smn_base.smn_rel_grupo_prestador_servicio.smn_prestadores_servicios_id inner join smn_base.smn_grupos_prestadores on smn_base.smn_grupos_prestadores.smn_grupos_prestadores_id = smn_base.smn_rel_grupo_prestador_servicio.smn_grupos_prestadores_id inner join smn_base.smn_usuarios on smn_base.smn_usuarios.smn_auxiliar_rf = smn_base.smn_prestadores_servicios.prs_auxiliar inner join smn_seguridad.s_user on smn_seguridad.s_user.user_id=smn_base.smn_usuarios.smn_user_rf where smn_base.smn_rel_grupo_prestador_servicio.smn_grupos_prestadores_id=${fld:grupo} and smn_seguridad.s_user.userlogin='${def:user}')
+
+WHERE
+	smn_prestacion_servicio_medico_cabecera_id=${fld:idcab}

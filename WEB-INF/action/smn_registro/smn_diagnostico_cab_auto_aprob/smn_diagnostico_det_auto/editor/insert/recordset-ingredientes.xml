@@ -1,0 +1,6 @@
+<?xml version='1.0' encoding='ISO-8859-1'?>
+<recordset>
+		<parameter id='smn_rel_diagnostico_servicio_id' type='integer'/>
+		<parameter id='smn_diagnostico_det_auto_id' type='integer'/>
+        <parameter id='smn_servicio_rf' type='integer'/>
+</recordset>  

@@ -1,0 +1,246 @@
+<!doctype html>
+<html>
+
+<head>
+
+<link rel="stylesheet" type="text/css" href="${def:context}/dinamica_bkp.css" />
+	<link rel="stylesheet" type="text/css" href="${def:context}/main.css" />
+<!--biblioteca generica JS/Dinamica-->
+<script type="text/javascript" src="${def:context}/action/script">
+</script>
+
+</head>
+
+<body>
+
+<!--banner-->
+<div class="welcome" style="padding-right:50px; margin-top: 20px;"><br>
+        <b>${lbl:b_welcome}</b> ${fld:fname} ${fld:lname} ${req:progress}
+        <div class="" style="width: 100%; border-bottom: solid 6px #1d61a0; border-radius: 30px; margin-top: 4px;">
+        </div>
+    </div>
+    <br>
+    <div class="titulo-negocios">
+        <div style="padding-top: 15px;">${lbl:b_ruta_paciente}</div>
+    </div>
+
+<!--formulario de filtro-->
+<form name="form1" onsubmit="return search()" style="width:530px;">
+
+	<!--titulo-->
+	<h1>Filtro de búsqueda</h1>
+	
+	<table>
+	
+	<!--ancho de la columna de etiquetas-->
+	<col style="width:40%">
+
+	<!--campos-->
+	<tr>
+		<td>${lbl:b_entidades_rp}</td>
+		<td>
+			<select name="smn_entidad_rf" id="smn_entidad_rf" onchange="chgCombo(smn_entidad_rf.options[smn_entidad_rf.selectedIndex].text,'smn_entidad_rf_name');">				
+				<smn_entidad_rf_rows>
+				<option value="${fld:id}">${fld:item}</option>
+
+				</smn_entidad_rf_rows>
+			</select> 
+			<input id="smn_entidad_rf_name" name="smn_entidad_rf_name" type="hidden">
+		</td>
+	</tr>
+	<tr>
+		<td>${lbl:b_sucursal_rp}</td>
+		<td>
+			<select name="smn_sucursal_rf" id="smn_sucursal_rf" onchange="chgCombo2(smn_sucursal_rf.options[smn_sucursal_rf.selectedIndex].text,'smn_sucursal_rf_name');">
+				<option value="">[Cualquiera]</option>
+				<smn_sucursal_rf_rows>
+				<option value="${fld:id}">${fld:item}</option>
+
+				</smn_sucursal_rf_rows>
+			</select> 
+			<input id="smn_sucursal_rf_name" name="smn_sucursal_rf_name" type="hidden">
+		</td>
+	</tr>
+	<tr>
+		<td>${lbl:b_area_rp}</td>
+		<td>
+			<select name="smn_area_servicio_rf" id="smn_area_servicio_rf" onchange="chgCombo(smn_area_servicio_rf.options[smn_area_servicio_rf.selectedIndex].text,'smn_area_servicio_rf_name');">
+				<option value="">[Cualquiera]</option>
+				<smn_area_servicio_rf_rows>
+				<option value="${fld:id}">${fld:item}</option>
+
+				</smn_area_servicio_rf_rows>
+			</select> 
+			<input id="smn_area_servicio_rf_name" name="smn_area_servicio_rf_name" type="hidden">
+		</td>
+	</tr>
+	<tr>
+		<td>${lbl:b_tipo_unidad_rp}</td>
+		<td>
+			<select name="tipo_unidad_rp" id="tipo_unidad_rp">
+				<option value="">[Cualquiera]</option>
+				<option value="">Administrativa</option>
+				<option value="">Servicio</option>
+			</select> 			
+		</td>
+	</tr>	
+	<tr>
+		<td>${lbl:b_units_service}</td>
+		<td>
+			<select name="smn_unidad_servicio_rf" id="smn_unidad_servicio_rf" onchange="chgCombo(smn_unidad_servicio_rf.options[smn_unidad_servicio_rf.selectedIndex].text,'smn_unidad_servicio_rf_name');">
+				<option value="">[Cualquiera]</option>
+				<smn_unidad_servicio_rf_rows>
+				<option value="${fld:id}">${fld:item}</option>
+
+				</smn_unidad_servicio_rf_rows>
+			</select> 
+			<input id="smn_unidad_servicio_rf_name" name="smn_unidad_servicio_rf_name" type="hidden">
+		</td>
+	</tr>
+	<tr>
+		<td>${lbl:b_serie}</td>
+		<td>
+			<select name="smn_serie_id" id="smn_serie_id" onchange="chgCombo(smn_serie_id.options[smn_serie_id.selectedIndex].text,'smn_serie_id_name');">
+				<option value="">[Cualquiera]</option>
+				<smn_serie_id_rows>
+				<option value="${fld:id}">${fld:item}</option>
+
+				</smn_serie_id_rows>
+			</select> 
+			<input id="smn_serie_id_name" name="smn_serie_id_name" type="hidden">
+		</td>
+	</tr>
+	<tr>
+		<td>${lbl:b_ejecutivo_asignado}</td>
+		<td>
+			<select name="rta_ejecutivo_asignado" id="rta_ejecutivo_asignado" onchange="chgCombo(rta_ejecutivo_asignado.options[rta_ejecutivo_asignado.selectedIndex].text,'rta_ejecutivo_asignado_name');">
+				<option value="">[Cualquiera]</option>
+				<rta_ejecutivo_asignado_rows>
+				<option value="${fld:id}">${fld:item}</option>
+
+				</rta_ejecutivo_asignado_rows>
+			</select> 
+			<input id="rta_ejecutivo_asignado_name" name="rta_ejecutivo_asignado_name" type="hidden">
+		</td>
+	</tr>
+	<tr>
+		<td>${lbl:b_store_date}@{${def:date}}</td>
+		<td>
+			<input id="rta_fecha_registro" name="rta_fecha_registro" type="text" class="date" maxlength="10">
+			<img src="${def:context}/images/dropdown.png" title="Desplegar calendario" onclick="calendarOpen('rta_fecha_registro')">
+		</td>
+	</tr>
+
+	
+	</table>
+	
+	<!--botones-->
+	<input type="submit" value="Buscar" class="button">
+	<input type="button" value="Limpiar" class="button" onclick="clearForm('form1')">
+	
+	
+</form>
+
+<!--panel de respuesta AJAX #1-->
+<div id="response" style="display:none; width:100%; margin-top:10px;"></div>
+	
+</body>
+
+<!--codigo de soporte del template-->
+<script type="text/javascript">
+
+	//inicializacion de la pagina cuando carga
+	onload = function()
+	{ 
+		showFilter();					
+
+	} 
+	
+
+
+	function chgCombo(text,id)
+	{
+		document.getElementById(id).value = text;
+	}
+	
+	//mostrar filtro de busqueda
+	function showFilter()
+	{
+		document.getElementById("response").style.display='none';
+		setFocusOnForm("form1");
+	}
+	
+	//ejecutar consulta
+	function search()
+	{
+
+		var url = "${def:actionroot}/search";
+		
+		//determina si refresca y se para en la pagina actual o en la pagina 1
+		if (currentPage > 0)
+			url = "${def:actionroot}/search?currentpage=" + currentPage;
+
+		//definir funcion goBack()
+		_goBackFn = showFilter;
+		
+		clearErrorMessages();
+
+		//llamada Ajax...
+		return ajaxCall(	httpMethod="POST", 
+							uri=url, 
+							divResponse="response", 
+							divProgress="status", 
+							formName="form1", 
+							afterResponseFn=null, 
+							onErrorFn=showFilter);
+
+	}
+
+	//mostrar una pagina del grid
+	function viewPage()
+	{
+		var url = "${def:actionroot}/view";
+		//llama a la funcion para ir a la pagina indicada 
+		gotoPage(url);
+	}		
+	
+	//retorna al estado previo que corresponde
+	//al estado actual de la pagina, cada llamada Ajax
+	//se encarga de definir cual es la funcion de goBack() que aplica
+	function goBack() 
+	{
+		_goBackFn()			
+	}
+	
+	//invoca la generacion de un PDF en un popup
+	function openPDF()
+	{
+		var features = "height=500,width=800,status=no,toolbar=no,menubar=no,location=no,scrollbars=yes,resizable=yes";
+		var url = "${def:context}${def:actionroot}/pdf?random=" + Math.random();
+		var w = window.open(url, null, features);
+	}
+
+	//invoca la generacion de un Excel en un popup
+	function openExcel()
+	{
+		var features = "height=500,width=800,status=no,toolbar=no,menubar=no,location=no,scrollbars=yes,resizable=yes";
+		var url = "${def:context}${def:actionroot}/excel?random=" + Math.random();
+		var w = window.open(url, null, features);
+	}
+	
+	//mostrar el detalle de un registro
+	function getDetail(id)
+	{
+		
+		var uri = "${def:context}${def:actionroot}/detail/form?id=" + id;
+		openDialog("dialog", uri, 750, 450);
+		
+	}
+	
+	
+	
+	
+			
+</script>
+
+</html>

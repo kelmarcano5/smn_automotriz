@@ -1,0 +1,1 @@
+SELECT smn_automotriz.smn_series.sri_codigo as id, smn_automotriz.smn_series.sri_codigo as item FROM smn_automotriz.smn_series where smn_automotriz.smn_series.sri_codigo='F' order by smn_automotriz.smn_series.smn_series_id 

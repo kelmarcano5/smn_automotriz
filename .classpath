@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<classpath>
+	<classpathentry excluding="proceso/" kind="src" path="WEB-INF/source"/>
+	<classpathentry kind="lib" path="WEB-INF/lib/framework.jar" sourcepath="E:/tomcat7/dinamica/source.zip"/>
+	<classpathentry kind="lib" path="WEB-INF/lib/iText-2.1.7.jar"/>
+	<classpathentry kind="lib" path="WEB-INF/lib/jcommon-1.0.21.jar"/>
+	<classpathentry kind="lib" path="WEB-INF/lib/jfreechart-1.0.17.jar"/>
+	<classpathentry kind="lib" path="WEB-INF/lib/captcha.jar"/>
+	<classpathentry kind="lib" path="WEB-INF/lib/jxl.jar"/>
+	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER"/>
+	<classpathentry kind="lib" path="C:/Program Files/Apache Software Foundation/Tomcat 7.0/lib/servlet-api.jar"/>
+	<classpathentry kind="lib" path="C:/Program Files/Apache Software Foundation/Tomcat 7.0/lib/poi-3.9-20121203.jar"/>
+	<classpathentry kind="output" path="WEB-INF/classes"/>
+</classpath>

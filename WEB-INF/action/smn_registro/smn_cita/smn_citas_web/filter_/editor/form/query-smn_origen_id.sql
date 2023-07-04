@@ -1,0 +1,1 @@
+select smn_automotriz.smn_origen.smn_origen_id as id, smn_automotriz.smn_origen.ori_codigo || ' - ' || smn_automotriz.smn_origen.ori_descripcion as item from smn_automotriz.smn_origen order by smn_automotriz.smn_origen.ori_descripcion

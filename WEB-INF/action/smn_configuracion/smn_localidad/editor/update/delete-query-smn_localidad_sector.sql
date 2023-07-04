@@ -1,0 +1,1 @@
+delete from smn_automotriz.smn_localidad_sector WHERE smn_localidad_id= ${fld:id}

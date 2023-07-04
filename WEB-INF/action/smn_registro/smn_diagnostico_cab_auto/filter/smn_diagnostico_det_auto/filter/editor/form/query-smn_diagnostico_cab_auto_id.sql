@@ -1,0 +1,1 @@
+select dca.smn_diagnostico_cab_auto_id as id, dca.smn_diagnostico_cab_auto_id  as item from smn_automotriz.smn_diagnostico_cab_auto dca

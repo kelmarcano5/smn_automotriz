@@ -1,0 +1,1 @@
+select smn_automotriz.smn_estatus_citas.smn_estatus_citas_id as id, smn_automotriz.smn_estatus_citas.eci_num_secuencia || ' - ' || smn_automotriz.smn_estatus_citas.eci_descripcion as item from smn_automotriz.smn_estatus_citas order by smn_automotriz.smn_estatus_citas.eci_descripcion

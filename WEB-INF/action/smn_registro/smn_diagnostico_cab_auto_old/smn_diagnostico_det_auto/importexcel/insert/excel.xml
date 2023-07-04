@@ -1,0 +1,9 @@
+<?xml version='1.0' encoding='ISO-8859-1'?>
+<validator maxErrors='20'>
+	<parameter id='smn_diagnostico_cab_auto_id' type='integer' required='false' maxlen='10'/>
+	<parameter id='smn_servicio_rf' type='integer' required='true' maxlen='10'/>
+	<parameter id='did_observacion' type='varchar' required='true' maxlen='200'/>
+
+
+
+</validator>

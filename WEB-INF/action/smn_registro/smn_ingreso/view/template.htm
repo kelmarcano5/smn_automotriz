@@ -1,0 +1,74 @@
+<!--data grid-->
+<table class="datagrid" style="width:95%;">
+
+	<col width='3%'/>
+	<col width='3%'/>
+	<col width='3%'/>
+	<col width='3%'/>
+	<col width='3%'/>
+	<col width='3%'/>
+	<col width='3%'/>
+	<col width='3%'/>
+	<col width='12%'/>
+	<col width='12%'/>
+	<col width='12%'/>
+	<col width='12%'/>
+	<col width='12%'/>
+	<col width='12%'/>
+	<col width='12%'/>
+	<col width='12%'/>
+	<col width='3%'/>
+
+	<!--toolbar-->
+	<tr>
+		<th colspan="18" id="encabezado_tabla">
+			${req:controls} 
+		</th>
+	</tr>
+
+	<!--encabezados-->
+	<tr>
+		<th></th>
+		<th></th>
+		<th></th>
+		<th>VR</th>
+		<th>AP</th>
+		<th>GP</th>
+		<th>PR</th>
+		<th>RV</th>
+		<th class='sortable' onclick='sortBy("smn_doc_orig","query-smningreso.sql")'>${lbl:b_doc_orig}</th>
+		<th class='sortable' onclick='sortBy("smn_documento_id_combo","query-smningreso.sql")'>${lbl:b_document}</th>
+		<th class='sortable' onclick='sortBy("igs_num_ingreso","query-smningreso.sql")'>${lbl:b_num_ingreso}</th>
+		<th class='sortable' onclick='sortBy("smn_unidades_servicios_rf_combo","query-smningreso.sql")'>${lbl:b_service_units}</th>
+		<th class='sortable' onclick='sortBy("igs_ticket","query-smningreso.sql")'>${lbl:b_num_ticket}</th>
+		<th class='sortable' onclick='sortBy("smn_auxiliar_rf","query-smningreso.sql")'>${lbl:b_auxiliary_pa}</th>
+		<th class='sortable' onclick='sortBy("rta_estatus","query-smningreso.sql")'>${lbl:b_status}</th>
+		<th class='sortable' onclick='sortBy("igs_fecha_registro","query-smningreso.sql")'>${lbl:b_store_date}</th>
+		<th>IM</th>
+	</tr>
+
+	<!--data-->
+	<rows>
+		<tr>
+			<td><img src="${def:context}/images/search.png"  onclick="getDetail('${fld:smn_ingreso_id}')" title="${lbl:b_view_detail}"></td>
+			<td><img src="${def:context}/images/delete.png"  onclick="deleteRecord('${fld:smn_ingreso_id}','${fld:igs_estatus_financiero}','${fld:igs_fecha_registro}')" title="${lbl:b_delete_button}"></td>
+			<td><img src="${def:context}/images/edit.png"  onclick="showEditor('${fld:smn_ingreso_id}','${fld:igs_estatus_financiero}','${fld:igs_fecha_registro}')" title="${lbl:b_edit_button}"></td>
+			<td><img src="${def:context}/images/search.png"  onclick="reporte('${fld:smn_ingreso_id}','${fld:igs_ticket}','${fld:igs_fecha_registro}','${fld:rta_estatus}')" title="Aprobar Ingreso"></td>
+			<td><img src="${def:context}/images/icongrid/Generar.png"  onclick="aprobar('${fld:smn_ingreso_id}','${fld:igs_ticket}','${fld:igs_fecha_registro}','${fld:rta_estatus}')" title="Aprobar Ingreso"></td>
+			<td><img src="${def:context}/images/icongrid/Generar.png"  onclick="generarpresupuesto('${fld:smn_ingreso_id}','${fld:smn_areas_servicios_rf}')" title="Generar Presupuesto"></td>
+			<!-- <td><img src="${def:context}/images/icongrid/Generar.png"  onclick="generardiagnostico('${fld:smn_ingreso_id}','${fld:igs_ticket}','${fld:igs_fecha_registro}','${fld:rta_estatus}')" title="Generar Diagnostico"></td> -->
+			<td><img src="${def:context}/images/icongrid/Generar.png"  onclick="procesar('${fld:smn_ingreso_id}','${fld:igs_ticket}','${fld:igs_fecha_registro}','${fld:rta_estatus}','${fld:serie}', '${fld:igs_estatus_financiero}')" title="Procesar Ingreso"></td>
+			<td><img src="${def:context}/images/icongrid/Reversar.png"  onclick="reversarRecord('${fld:smn_ingreso_id}','${fld:rta_estatus}','${fld:igs_num_ingreso}')" title="Reversar Caja"></td>
+			<td>${fld:smn_doc_orig}</td>
+			<td>${fld:smn_documento_id_combo}</td>
+			<td>${fld:igs_num_ingreso}</td>
+			<td>${fld:smn_unidades_servicios_rf_combo}</td>
+			<td>${fld:ticket2}</td>
+			<td>${fld:smn_auxiliar_rf}</td>
+			<td>${fld:rta_estatus}
+			<td>${fld:igs_fecha_registro}</td>
+			<td><img src="${def:context}/images/icongrid/Detalle-impuesto.png"  onclick="detalleingreso('${fld:smn_ingreso_id}','${fld:smn_areas_servicios_rf}','${fld:igs_num_ingreso}','${fld:igs_estatus_financiero}','${fld:igs_fecha_registro}','${fld:rta_estatus}')" title="${lbl:b_ingreso_mov}"></td>
+		</tr>
+	</rows>
+
+</table>

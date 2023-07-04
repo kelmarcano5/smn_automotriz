@@ -1,0 +1,1 @@
+select smn_automotriz.smn_afiliado_titular.smn_afiliados_id as id, smn_automotriz.smn_afiliado_titular.afi_numero_control|| ' - ' || smn_automotriz.smn_afiliado_titular.smn_contratante_id  as item from  smn_automotriz.smn_afiliado_titular  order by smn_automotriz.smn_afiliado_titular.smn_contratante_id 

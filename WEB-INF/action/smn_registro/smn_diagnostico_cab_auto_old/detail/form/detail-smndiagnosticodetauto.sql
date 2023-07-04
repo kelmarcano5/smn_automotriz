@@ -1,0 +1,8 @@
+select
+	smn_automotriz.smn_diagnostico_det_auto.*
+from
+	smn_automotriz.smn_diagnostico_det_auto,
+	smn_automotriz.smn_diagnostico_cab_auto
+where
+		smn_automotriz.smn_diagnostico_det_auto.smn_diagnostico_cab_auto_id=smn_automotriz.smn_diagnostico_cab_auto.smn_diagnostico_cab_auto_id and
+		smn_automotriz.smn_diagnostico_cab_auto.smn_diagnostico_cab_auto_id=${fld:id}

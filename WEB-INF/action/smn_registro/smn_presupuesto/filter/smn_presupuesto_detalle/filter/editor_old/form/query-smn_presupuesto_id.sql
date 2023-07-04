@@ -1,0 +1,1 @@
+select smn_automotriz.smn_presupuesto.smn_presupuesto_id as id, smn_automotriz.smn_presupuesto.smn_documento_id || ' - ' || smn_automotriz.smn_presupuesto.pre_numero_control as item from smn_automotriz.smn_presupuesto order by smn_automotriz.smn_presupuesto.pre_numero_control

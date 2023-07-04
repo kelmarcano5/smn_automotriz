@@ -1,0 +1,6 @@
+<?xml version='1.0' encoding='ISO-8859-1'?>
+<recordset>
+		<parameter id='smn_ingreso_observaciones_id' type='integer'/>
+		<parameter id='smn_ingresos_id' type='integer'/>
+        <parameter id='smn_observaciones_citas_id' type='integer'/>
+</recordset>  

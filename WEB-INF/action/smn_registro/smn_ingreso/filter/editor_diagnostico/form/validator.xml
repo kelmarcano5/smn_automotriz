@@ -1,0 +1,10 @@
+<?xml version='1.0' encoding='ISO-8859-1'?>
+<validator onerror="/action/error/validation/alert">
+	<parameter id="id" type="integer" required="false" label="ID" maxlen="10" />
+	<parameter id="id_ingreso" type="integer" required="false" label="ID" maxlen="10" />
+	<parameter id='smn_clase_auxiliar_rf' type='integer' required='false' label='${lbl:b_auxiliary_class_pa}' maxlen='10'/>
+	<parameter id='smn_auxiliar_rf' type='integer' required='false' label='${lbl:b_auxiliary_pa}' maxlen='10'/>
+	<parameter id="ticket" type="integer" required="false" label="ID" maxlen="10" />
+	<parameter id="fecha" type="varchar" required="false" label="ID" maxlen="10" />
+		<parameter id="unidad" type="integer" required="false" label="ID" maxlen="10" />
+</validator>

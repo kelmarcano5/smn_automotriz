@@ -1,0 +1,23 @@
+select
+		smn_automotriz.smn_planes.pla_codigo,
+	smn_automotriz.smn_planes.pla_descripcion,
+	smn_automotriz.smn_planes.pla_vigencia_desde,
+	smn_automotriz.smn_planes.pla_vigencia_hasta,
+	smn_automotriz.smn_planes.pla_inactivo,
+	smn_automotriz.smn_planes.pla_modelo_contrato,
+	smn_automotriz.smn_planes.pla_empresa,
+	smn_automotriz.smn_planes.pla_clase_auxiliar,
+	smn_automotriz.smn_planes.pla_auxiliar,
+	smn_automotriz.smn_planes.pla_fecha_registro,
+	smn_automotriz.smn_planes.pla_codigo,
+	smn_automotriz.smn_planes.pla_descripcion,
+	smn_automotriz.smn_planes.pla_vigencia_desde,
+	smn_automotriz.smn_planes.pla_vigencia_hasta,
+	smn_automotriz.smn_planes.pla_inactivo,
+	smn_automotriz.smn_planes.pla_modelo_contrato,
+	smn_automotriz.smn_planes.pla_empresa,
+	smn_automotriz.smn_planes.pla_fecha_registro
+from
+	smn_automotriz.smn_planes 
+where
+	smn_automotriz.smn_planes.smn_planes_id = ${fld:id}

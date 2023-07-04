@@ -1,0 +1,10 @@
+<?xml version='1.0' encoding='ISO-8859-1'?>
+<validator onerror='/action/error/validation/ajax'>
+	<parameter id='smn_prestador_servicio_rf' type='integer' required='true' label='${lbl:b_service_units}' maxlen='10'/>
+		<parameter id='smn_auxiliar_rf' type='varchar' required='true' label='Auxiliar' maxlen='200'/>
+			<parameter id='igs_num_ingreso_pl0' type='integer' required='true' label='Ingreso' maxlen='10'/>
+				<parameter id='smn_grupo_prestador_rf' type='varchar' required='true' label='Grupo Prestador' maxlen='200'/>
+	<parameter id='id' type='integer' required='true' label='${lbl:b_header_medic_provider_services}' maxlen='10'/>
+
+
+</validator>

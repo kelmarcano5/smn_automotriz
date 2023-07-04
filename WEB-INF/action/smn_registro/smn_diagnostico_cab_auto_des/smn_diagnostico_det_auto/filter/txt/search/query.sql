@@ -1,0 +1,18 @@
+select
+		smn_automotriz.smn_diagnostico_det_auto.smn_diagnostico_det_auto_id,
+	smn_automotriz.smn_diagnostico_cab_auto.smn_diagnostico_cab_auto_id,
+	smn_automotriz.smn_diagnostico_cab_auto.dia_estatus as dia_estatus_pl0,
+select
+		smn_automotriz.smn_diagnostico_det_auto.smn_diagnostico_det_auto_id,
+select
+		smn_automotriz.smn_diagnostico_det_auto.smn_diagnostico_det_auto_id,
+	smn_automotriz.smn_diagnostico_det_auto.smn_diagnostico_cab_auto_id,
+	smn_automotriz.smn_diagnostico_det_auto.smn_servicio_rf,
+	smn_automotriz.smn_diagnostico_det_auto.did_observacion,
+	smn_automotriz.smn_diagnostico_det_auto.did_fecha_registro
+	
+from
+	smn_automotriz.smn_diagnostico_cab_auto,
+	smn_automotriz.smn_diagnostico_det_auto
+where
+	smn_automotriz.smn_diagnostico_cab_auto.smn_diagnostico_cab_auto_id=smn_automotriz.smn_diagnostico_det_auto.smn_diagnostico_cab_auto_id

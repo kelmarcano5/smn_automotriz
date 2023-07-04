@@ -1,0 +1,1 @@
+delete from smn_automotriz.smn_relacion_horario_tramos WHERE smn_horarios_id= ${fld:id}

@@ -1,0 +1,26 @@
+select
+		smn_automotriz.smn_presupuesto.smn_documento_id,
+	smn_automotriz.smn_presupuesto.pre_numero_control,
+	smn_automotriz.smn_presupuesto.smn_entidades_rf,
+	smn_automotriz.smn_presupuesto.smn_sucursales_rf,
+	smn_automotriz.smn_presupuesto.smn_clase_auxiliar_rf,
+	smn_automotriz.smn_presupuesto.smn_auxiliar_rf,
+	smn_automotriz.smn_presupuesto.smn_clase_ord_rf,
+	smn_automotriz.smn_presupuesto.smn_auxiliar_ord_rf,
+	smn_automotriz.smn_presupuesto.smn_baremo_rf,
+	smn_automotriz.smn_presupuesto.smn_auxiliar_unidades_negocios_rf,
+	smn_automotriz.smn_presupuesto.smn_auxiliar_sucursales_rf,
+	smn_automotriz.smn_presupuesto.smn_auxiliar_areas_servicios_rf,
+	smn_automotriz.smn_presupuesto.smn_auxiliar_unidades_servicios_rf,
+	smn_automotriz.smn_presupuesto.pre_vigencia_hasta,
+	smn_automotriz.smn_presupuesto.smn_ordenes_medicas_id,
+	smn_automotriz.smn_presupuesto.pre_fecha_entrega,
+	smn_automotriz.smn_presupuesto.pre_monto_ml,
+	smn_automotriz.smn_presupuesto.smn_moneda_rf,
+	smn_automotriz.smn_presupuesto.pre_monto_ma,
+	smn_automotriz.smn_presupuesto.smn_estado_presupuesto_id,
+	smn_automotriz.smn_presupuesto.pre_fecha_registro
+from
+	smn_automotriz.smn_presupuesto 
+where
+	smn_automotriz.smn_presupuesto.smn_presupuesto_id = ${fld:id}

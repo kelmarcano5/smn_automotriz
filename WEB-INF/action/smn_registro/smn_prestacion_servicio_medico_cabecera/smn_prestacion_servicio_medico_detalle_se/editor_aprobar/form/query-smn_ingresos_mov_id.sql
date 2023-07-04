@@ -1,0 +1,1 @@
+select smn_automotriz.smn_ingreso_movimiento.smn_ingresos_mov_id as id, smn_automotriz.smn_ingreso_movimiento.smn_ingreso_id as item from smn_automotriz.smn_ingreso_movimiento

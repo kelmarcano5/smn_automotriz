@@ -1,0 +1,12 @@
+select
+	smn_automotriz.smn_diagnostico_det_auto.smn_diagnostico_det_auto_id,
+	smn_automotriz.smn_diagnostico_cab_auto.dia_estatus as dia_estatus_pl0,
+	smn_automotriz.smn_diagnostico_det_auto.smn_diagnostico_cab_auto_id as smn_diagnostico_cab_auto_id_combo,
+	smn_automotriz.smn_diagnostico_det_auto.did_observacion,
+	smn_automotriz.smn_diagnostico_det_auto.did_fecha_registro
+	
+from
+	smn_automotriz.smn_diagnostico_det_auto
+	left outer join smn_automotriz.smn_diagnostico_cab_auto on smn_automotriz.smn_diagnostico_cab_auto.smn_diagnostico_cab_auto_id = smn_automotriz.smn_diagnostico_det_auto.smn_diagnostico_det_auto_id
+where
+	smn_diagnostico_det_auto_id = ${fld:id}

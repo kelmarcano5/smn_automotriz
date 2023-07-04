@@ -1,0 +1,1 @@
+select ${seq:nextval@smn_automotriz.seq_smn_ingreso_cola_virtual} as idCola, ${fld:cedula} as cedula

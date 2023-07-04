@@ -1,0 +1,1 @@
+select smn_automotriz.smn_observaciones.smn_observaciones_id as smn_observaciones_ingresos_id, smn_automotriz.smn_observaciones.obs_codigo||' - '|| smn_automotriz.smn_observaciones.obs_descripcion as item from smn_automotriz.smn_observaciones

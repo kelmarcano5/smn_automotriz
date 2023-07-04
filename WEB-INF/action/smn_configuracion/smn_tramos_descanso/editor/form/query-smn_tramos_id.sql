@@ -1,0 +1,1 @@
+select smn_automotriz.smn_tramos.smn_tramos_id as id, smn_automotriz.smn_tramos.trm_codigo || ' - ' || smn_automotriz.smn_tramos.trm_descripcion as item from smn_automotriz.smn_tramos order by smn_automotriz.smn_tramos.trm_descripcion

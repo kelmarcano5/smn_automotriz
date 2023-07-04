@@ -1,0 +1,46 @@
+<!--data grid-->
+<table class="datagrid" style="width:95%;">
+
+	<col width='3%'/>
+	<col width='3%'/>
+	<col width='3%'/>
+	<col width='25%'/>
+	<col width='25%'/>
+	<col width='25%'/>
+	<col width='25%'/>
+
+
+	<!--toolbar-->
+	<tr>
+		<th colspan="7" id="encabezado_tabla">
+			${req:controls} 
+		</th>
+	</tr>
+
+	<!--encabezados-->
+	<tr>
+		<th></th>
+		<th></th>
+		<th></th>
+		<th class='sortable' onclick='sortBy("smn_diagnostico_cab_auto_id_combo","query-smndiagnosticodetauto.sql")'>${lbl:b_diagnostig_cab}</th>
+		<th class='sortable' onclick='sortBy("smn_servicio_rf_combo","query-smndiagnosticodetauto.sql")'>${lbl:b_service}</th>
+		<th class='sortable' onclick='sortBy("did_observacion","query-smndiagnosticodetauto.sql")'>${lbl:b_observation}</th>
+		<th class='sortable' onclick='sortBy("did_fecha_registro","query-smndiagnosticodetauto.sql")'>${lbl:b_store_date}</th>
+
+	</tr>
+
+	<!--data-->
+	<rows>
+	<tr>
+		<td><img src="${def:context}/images/search.png"  onclick="getDetail('${fld:smn_diagnostico_det_auto_id}')" title="${lbl:b_view_detail}"></td>
+		<td><img src="${def:context}/images/delete.png"  onclick="deleteRecord('${fld:smn_diagnostico_det_auto_id}')" title="${lbl:b_delete_button}"></td>
+		<td><img src="${def:context}/images/edit.png"  onclick="showEditor('${fld:smn_diagnostico_det_auto_id}')" title="${lbl:b_edit_button}"></td>
+		<td>${fld:smn_diagnostico_cab_auto_id_combo}</td>
+		<td>${fld:smn_servicio_rf_combo}</td>
+		<td align='left'>${fld:did_observacion}</td>
+		<td>${fld:did_fecha_registro@dd-MM-yyyy}</td>
+
+	</tr>
+	</rows>
+
+</table>

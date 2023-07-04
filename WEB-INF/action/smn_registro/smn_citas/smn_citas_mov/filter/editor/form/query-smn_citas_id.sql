@@ -1,0 +1,1 @@
+select smn_automotriz.smn_citas.smn_citas_id as id, smn_automotriz.smn_citas.cts_num_control as item from smn_automotriz.smn_citas order by smn_automotriz.smn_citas.cts_num_control

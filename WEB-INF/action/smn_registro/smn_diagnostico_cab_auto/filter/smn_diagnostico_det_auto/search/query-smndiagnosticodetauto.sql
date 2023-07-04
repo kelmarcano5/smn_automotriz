@@ -1,0 +1,16 @@
+select
+	smn_automotriz.smn_diagnostico_det_auto.smn_diagnostico_det_auto_id,
+	smn_automotriz.smn_diagnostico_cab_auto.dia_estatus as dia_estatus_pl0,
+	smn_automotriz.smn_diagnostico_det_auto.smn_diagnostico_cab_auto_id as smn_diagnostico_cab_auto_id_combo,
+	smn_automotriz.smn_diagnostico_det_auto.did_observacion,
+	smn_automotriz.smn_diagnostico_det_auto.did_fecha_registro,
+	smn_automotriz.smn_diagnostico_cab_auto.smn_ingresos_id,
+	smn_base.smn_servicios.smn_servicios_id  as smn_servicio_rf,
+	smn_base.smn_servicios.svc_codigo ||' - '|| smn_base.smn_servicios.svc_descripcion as servicios
+	
+from
+	smn_automotriz.smn_diagnostico_det_auto
+	left outer join smn_automotriz.smn_diagnostico_cab_auto on smn_automotriz.smn_diagnostico_cab_auto.smn_diagnostico_cab_auto_id = smn_automotriz.smn_diagnostico_det_auto.smn_diagnostico_cab_auto_id
+	left outer join smn_automotriz.smn_rel_diagnostico_servicio on smn_automotriz.smn_rel_diagnostico_servicio.smn_diagnostico_det_auto_id = smn_automotriz.smn_diagnostico_det_auto.smn_diagnostico_det_auto_id
+	inner join smn_base.smn_servicios on smn_base.smn_servicios.smn_servicios_id = smn_automotriz.smn_rel_diagnostico_servicio.smn_servicio_rf
+where smn_automotriz.smn_diagnostico_det_auto.smn_diagnostico_cab_auto_id=${fld:id2}

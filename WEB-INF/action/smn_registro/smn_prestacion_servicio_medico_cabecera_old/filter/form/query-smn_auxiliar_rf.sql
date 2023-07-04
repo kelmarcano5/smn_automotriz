@@ -1,0 +1,2 @@
+select smn_automotriz.smn_ingresos.smn_auxiliar_rf as id, smn_base.smn_auxiliar.aux_nombres || ' - ' || smn_base.smn_auxiliar.aux_apellidos as item from smn_automotriz.smn_ingresos
+inner join smn_base.smn_auxiliar on smn_base.smn_auxiliar.smn_auxiliar_id = smn_automotriz.smn_ingresos.smn_auxiliar_rf GROUP BY id, item ORDER BY id asc

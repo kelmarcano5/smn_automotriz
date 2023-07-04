@@ -1,0 +1,1 @@
+select smn_automotriz.smn_motivos.smn_motivos_id as id, smn_automotriz.smn_motivos.mtv_codigo || ' - ' || smn_automotriz.smn_motivos.mtv_descripcion as item from smn_automotriz.smn_motivos order by smn_automotriz.smn_motivos.mtv_descripcion

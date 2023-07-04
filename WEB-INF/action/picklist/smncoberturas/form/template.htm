@@ -1,0 +1,409 @@
+<!doctype html>
+<html>
+
+<head>
+
+<link rel="stylesheet" type="text/css" href="${def:context}/dinamica.css" />
+
+<!--biblioteca generica JS/Dinamica-->
+<script type="text/javascript" src="${def:context}/action/script">
+</script>
+
+<!--codigo de soporte del template-->
+<script type="text/javascript">
+
+		
+		
+		
+
+		//inicializacion de la pagina cuando carga
+		onload = function()
+		{ 
+			document.form1.elements[0].focus();
+			document.getElementById("status").style.display='none';
+					var txt_cob_horario_horas2 = new NumericInput(document.form2.cob_horario_horas2, 0);
+		var txt_cob_descuento2 = new NumericInput(document.form2.cob_descuento2);
+		var txt_cob_tiempo_servicio2 = new NumericInput(document.form2.cob_tiempo_servicio2, 0);
+		var txt_cob_deducible2 = new NumericInput(document.form2.cob_deducible2);
+		var txt_cob_time_desp_afil2 = new NumericInput(document.form2.cob_time_desp_afil2, 0);
+		var txt_cob_cantidad_servicio2 = new NumericInput(document.form2.cob_cantidad_servicio2, 0);
+		document.form2.cob_vigencia_desde2.onkeypress = keypressDate;
+		document.form2.cob_vigencia_hasta2.onkeypress = keypressDate;
+		var txt_cob_cobertura_desde2 = new NumericInput(document.form2.cob_cobertura_desde2);
+		var txt_cob_cobertura_hasta2 = new NumericInput(document.form2.cob_cobertura_hasta2);
+		var txt_cob_deducible_centro2 = new NumericInput(document.form2.cob_deducible_centro2);
+		var txt_cob_porc_deducible2 = new NumericInput(document.form2.cob_porc_deducible2);
+
+					var txt_cob_horario_horas = new NumericInput(document.form1.cob_horario_horas, 0);
+		var txt_cob_descuento = new NumericInput(document.form1.cob_descuento);
+		var txt_cob_tiempo_servicio = new NumericInput(document.form1.cob_tiempo_servicio, 0);
+		var txt_cob_deducible = new NumericInput(document.form1.cob_deducible);
+		var txt_cob_time_desp_afil = new NumericInput(document.form1.cob_time_desp_afil, 0);
+		var txt_cob_cantidad_servicio = new NumericInput(document.form1.cob_cantidad_servicio, 0);
+		document.form1.cob_vigencia_desde.onkeypress = keypressDate;
+		document.form1.cob_vigencia_hasta.onkeypress = keypressDate;
+		var txt_cob_cobertura_desde = new NumericInput(document.form1.cob_cobertura_desde);
+		var txt_cob_cobertura_hasta = new NumericInput(document.form1.cob_cobertura_hasta);
+		var txt_cob_deducible_centro = new NumericInput(document.form1.cob_deducible_centro);
+		var txt_cob_porc_deducible = new NumericInput(document.form1.cob_porc_deducible);
+
+			search();
+		} 
+	
+		//mostrar filtro de busqueda
+		function showFilter()
+		{
+			document.form1.elements[0].focus();			
+		}
+
+		//ejecutar consulta
+		function search()
+		{
+
+			//llamada Ajax...
+			return ajaxCall(	httpMethod="POST", 
+								uri="${def:actionroot}/search", 
+								divResponse="response", 
+								divProgress="status", 
+								formName="form1", 
+								afterResponseFn=showFilter, 
+								onErrorFn=showFilter);
+		
+		}
+	
+		//leer una pagina del grid
+		function viewPage()
+		{
+			var url = "${def:actionroot}/view";
+			gotoPage(url);
+		}
+
+		//retornar el item seleccionado a la pagina que llamo al picklist
+		function selectItem(id) {
+			var description = document.getElementById(id).innerHTML;
+			parent.pickSelect(id, description);
+			parent.pickClose();
+		}
+		
+		//mostrar formulario para addnew
+		function addNew() {
+			document.getElementById("addnew").style.display="block";
+			document.getElementById("form").style.display="none";
+			document.getElementById("response").style.display="none";
+			document.form2.elements[0].focus();
+		}
+		
+		function cancelAddnew() {
+			document.getElementById("addnew").style.display="none";
+			document.getElementById("form").style.display="block";
+			document.getElementById("response").style.display="block";
+			document.form1.name.focus();
+		}
+		
+		//ejecutar consulta
+		function insert()
+		{
+			//llamada Ajax...
+			return ajaxCall(	httpMethod="POST", 
+								uri="${def:actionroot}/insert", 
+								divResponse=null, 
+								divProgress="status", 
+								formName="form2", 
+								afterResponseFn=null, 
+								onErrorFn=addNew);
+		}		
+		
+</script>
+
+</head>
+
+<body>
+
+<!--banner-->
+<div class="bannerDialog">
+	Seleccionar un registro
+	<img src="${def:context}/images/close.png" class="button" onclick="parent.pickClose()" title="Cerrar" style="float:right; cursor:pointer;">
+	<img id="status" src="${def:context}/images/progbar.gif" style="display:inline; float:right;">
+</div>
+
+
+<!--formulario de filtro-->
+<form id="form" name="form1" onsubmit="return search()" style="width:90%; margin-top:10px;">
+	<table>
+
+	<!--ancho de la columna de etiquetas-->
+	<col width="30%">
+
+	<!--campos-->
+			<tr>
+			<td>${lbl:b_code}</td>
+			<td>
+				<input id="cob_codigo" name="cob_codigo" type="text" maxlength="16" ${class}>
+			</td>
+		</tr>
+		<tr>
+			<td>${lbl:b_description}</td>
+			<td>
+				<input id="cob_descripcion" name="cob_descripcion" type="text" maxlength="56" ${class}>
+			</td>
+		</tr>
+		<tr>
+			<td>${lbl:b_schedule_days}</td>
+			<td>
+				<input id="cob_horario_dias" name="cob_horario_dias" type="text" maxlength="32" ${class}>
+			</td>
+		</tr>
+		<tr>
+			<td>${lbl:b_schedule_hours}</td>
+			<td>
+				<input id="cob_horario_horas" name="cob_horario_horas" type="text" maxlength="32" ${class}>
+			</td>
+		</tr>
+	<tr>
+		<td>${lbl:b_coverage_area}</td>
+		<td>
+			<select name="cob_area_cobertura" id="cob_area_cobertura" onchange="chgCombo(cob_area_cobertura.options[cob_area_cobertura.selectedIndex].text,'cob_area_cobertura_name');">
+				<option value="">[Cualquiera]</option>
+				<cob_area_cobertura_rows>
+				<option value="${fld:id}">${fld:item}</option>
+
+				</cob_area_cobertura_rows>
+			</select> 
+			<input id="cob_area_cobertura_name" name="cob_area_cobertura_name" type="hidden">
+		</td>
+	</tr>
+		<tr>
+			<td>${lbl:b_discount}</td>
+			<td>
+				<input id="cob_descuento" name="cob_descuento" type="text" maxlength="10" ${class}>
+			</td>
+		</tr>
+		<tr>
+			<td>${lbl:b_service_time}</td>
+			<td>
+				<input id="cob_tiempo_servicio" name="cob_tiempo_servicio" type="text" maxlength="1" ${class}>
+			</td>
+		</tr>
+		<tr>
+			<td>${lbl:b_deducible}</td>
+			<td>
+				<input id="cob_deducible" name="cob_deducible" type="text" maxlength="10" ${class}>
+			</td>
+		</tr>
+		<tr>
+			<td>${lbl:b_time_after_affiliation}</td>
+			<td>
+				<input id="cob_time_desp_afil" name="cob_time_desp_afil" type="text" maxlength="10" ${class}>
+			</td>
+		</tr>
+	<tr>
+		<td>${lbl:b_another_centers}</td>
+		<td>
+			<select name="cob_otros_centros" id="cob_otros_centros">
+				<option value="S">${lbl:b_yes}</option>
+				<option value="N">${lbl:b_not}</option>
+
+			</select> 
+		</td>
+	</tr>
+		<tr>
+			<td>${lbl:b_qty}</td>
+			<td>
+				<input id="cob_cantidad_servicio" name="cob_cantidad_servicio" type="text" maxlength="10" ${class}>
+			</td>
+		</tr>
+	<tr>
+		<td>${lbl:b_validation_date_from}</td>
+		<td>
+			<input id="cob_vigencia_desde" name="cob_vigencia_desde" type="text" class="date" maxlength="10">
+			<img src="${def:context}/images/dropdown.png" title="Desplegar calendario" onclick="calendarOpen('cob_vigencia_desde')">
+		</td>
+	</tr>
+	<tr>
+		<td>${lbl:b_validation_date_until}</td>
+		<td>
+			<input id="cob_vigencia_hasta" name="cob_vigencia_hasta" type="text" class="date" maxlength="10">
+			<img src="${def:context}/images/dropdown.png" title="Desplegar calendario" onclick="calendarOpen('cob_vigencia_hasta')">
+		</td>
+	</tr>
+		<tr>
+			<td>${lbl:b_coverage_from}</td>
+			<td>
+				<input id="cob_cobertura_desde" name="cob_cobertura_desde" type="text" maxlength="10" ${class}>
+			</td>
+		</tr>
+		<tr>
+			<td>${lbl:b_coverage_until}</td>
+			<td>
+				<input id="cob_cobertura_hasta" name="cob_cobertura_hasta" type="text" maxlength="10" ${class}>
+			</td>
+		</tr>
+		<tr>
+			<td>${lbl:b_deductible_center}</td>
+			<td>
+				<input id="cob_deducible_centro" name="cob_deducible_centro" type="text" maxlength="10" ${class}>
+			</td>
+		</tr>
+		<tr>
+			<td>${lbl:b_porcentaje_deducible}</td>
+			<td>
+				<input id="cob_porc_deducible" name="cob_porc_deducible" type="text" maxlength="10" ${class}>
+			</td>
+		</tr>
+
+	
+	</table>
+	<input type="submit" value="Buscar" class="button" style="font-size: 9pt">	
+	<input type="button" value="Añadir" class="button" style="font-size: 9pt" title="Añadir un nuevo item" onclick="addNew()">
+</form>
+
+<!--formulario para añadir nuevo registro-->
+<form id="addnew" name="form2" onsubmit="return insert()" style="display:none; margin-top:10px; width:90%">
+	<table>
+	<h1>Añadir registro</h1>
+	<!--ancho de la columna de etiquetas-->
+	<col width="30%">
+	<!--campos-->
+	
+	
+			<tr>
+			<td>${lbl:b_code}*</td>
+			<td>
+				<input id="cob_codigo2" name="cob_codigo2" type="text" maxlength="16" >
+			</td>
+		</tr>
+		<tr>
+			<td>${lbl:b_description}</td>
+			<td>
+				<input id="cob_descripcion2" name="cob_descripcion2" type="text" maxlength="56" >
+			</td>
+		</tr>
+		<tr>
+			<td>${lbl:b_schedule_days}</td>
+			<td>
+				<input id="cob_horario_dias2" name="cob_horario_dias2" type="text" maxlength="32" >
+			</td>
+		</tr>
+		<tr>
+			<td>${lbl:b_schedule_hours}</td>
+			<td>
+				<input id="cob_horario_horas2" name="cob_horario_horas2" type="text" maxlength="32" class="numeric">
+			</td>
+		</tr>
+	<tr>
+		<td>${lbl:b_coverage_area}</td>
+		<td>
+			<select name="cob_area_cobertura2" id="cob_area_cobertura2" onchange="chgCombo(cob_area_cobertura2.options[cob_area_cobertura2.selectedIndex].text,'cob_area_cobertura2_name');">
+				<option value="">[Cualquiera]</option>
+				<cob_area_cobertura2_rows>
+				<option value="${fld:id}">${fld:item}</option>
+
+				</cob_area_cobertura2_rows>
+			</select> 
+			<input id="cob_area_cobertura2_name" name="cob_area_cobertura2_name" type="hidden">
+		</td>
+	</tr>
+		<tr>
+			<td>${lbl:b_discount}</td>
+			<td>
+				<input id="cob_descuento2" name="cob_descuento2" type="text" maxlength="10" class="numeric">
+			</td>
+		</tr>
+		<tr>
+			<td>${lbl:b_service_time}</td>
+			<td>
+				<input id="cob_tiempo_servicio2" name="cob_tiempo_servicio2" type="text" maxlength="1" class="numeric">
+			</td>
+		</tr>
+	<tr>
+		<td>${lbl:b_tipo_cobertura}*</td>
+		<td>
+			<select name="smn_tipo_coberturas_id2" id="smn_tipo_coberturas_id2" onchange="chgCombo(smn_tipo_coberturas_id2.options[smn_tipo_coberturas_id2.selectedIndex].text,'smn_tipo_coberturas_id2_name');">
+				<option value="">[Cualquiera]</option>
+				<smn_tipo_coberturas_id2_rows>
+				<option value="${fld:id}">${fld:item}</option>
+
+				</smn_tipo_coberturas_id2_rows>
+			</select> 
+			<input id="smn_tipo_coberturas_id2_name" name="smn_tipo_coberturas_id2_name" type="hidden">
+		</td>
+	</tr>
+		<tr>
+			<td>${lbl:b_deducible}</td>
+			<td>
+				<input id="cob_deducible2" name="cob_deducible2" type="text" maxlength="10" class="numeric">
+			</td>
+		</tr>
+		<tr>
+			<td>${lbl:b_time_after_affiliation}</td>
+			<td>
+				<input id="cob_time_desp_afil2" name="cob_time_desp_afil2" type="text" maxlength="10" class="numeric">
+			</td>
+		</tr>
+	<tr>
+		<td>${lbl:b_another_centers}*</td>
+		<td>
+			<select name="cob_otros_centros2" id="cob_otros_centros2">
+				<option value="S">${lbl:b_yes}</option>
+				<option value="N">${lbl:b_not}</option>
+
+			</select> 
+		</td>
+	</tr>
+		<tr>
+			<td>${lbl:b_qty}</td>
+			<td>
+				<input id="cob_cantidad_servicio2" name="cob_cantidad_servicio2" type="text" maxlength="10" class="numeric">
+			</td>
+		</tr>
+	<tr>
+		<td>${lbl:b_validation_date_from}*</td>
+		<td>
+			<input id="cob_vigencia_desde2" name="cob_vigencia_desde2" type="text" class="date" maxlength="10">
+			<img src="${def:context}/images/dropdown.png" title="Desplegar calendario" onclick="calendarOpen('cob_vigencia_desde2')">
+		</td>
+	</tr>
+	<tr>
+		<td>${lbl:b_validation_date_until}*</td>
+		<td>
+			<input id="cob_vigencia_hasta2" name="cob_vigencia_hasta2" type="text" class="date" maxlength="10">
+			<img src="${def:context}/images/dropdown.png" title="Desplegar calendario" onclick="calendarOpen('cob_vigencia_hasta2')">
+		</td>
+	</tr>
+		<tr>
+			<td>${lbl:b_coverage_from}</td>
+			<td>
+				<input id="cob_cobertura_desde2" name="cob_cobertura_desde2" type="text" maxlength="10" class="numeric">
+			</td>
+		</tr>
+		<tr>
+			<td>${lbl:b_coverage_until}</td>
+			<td>
+				<input id="cob_cobertura_hasta2" name="cob_cobertura_hasta2" type="text" maxlength="10" class="numeric">
+			</td>
+		</tr>
+		<tr>
+			<td>${lbl:b_deductible_center}</td>
+			<td>
+				<input id="cob_deducible_centro2" name="cob_deducible_centro2" type="text" maxlength="10" class="numeric">
+			</td>
+		</tr>
+		<tr>
+			<td>${lbl:b_porcentaje_deducible}</td>
+			<td>
+				<input id="cob_porc_deducible2" name="cob_porc_deducible2" type="text" maxlength="10" class="numeric">
+			</td>
+		</tr>
+
+	</table>
+	<input type="submit" value="Grabar" class="button" style="font-size: 9pt">
+	<input 	type="button" value="Cancelar" class="button" style="font-size: 9pt" onclick="cancelAddnew()">
+</form>			
+
+<!--panel de respuesta AJAX-->
+<div id="response" style="display: none; width:100%; margin-top:15px;">
+</div>
+
+</body>
+
+</html>

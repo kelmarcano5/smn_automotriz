@@ -1,0 +1,7 @@
+<?xml version='1.0' encoding='ISO-8859-1'?>
+<validator id='filter.params' onerror='/action/error/validation/ajax'>
+	<!-- <parameter id='smn_diagnostico_det_auto_id_name' type='varchar' required='false' label='${lbl:b_diagnostig_det}'/> -->
+	<parameter id='smn_diagnostico_det_auto_id' type='integer' required='false' label='${lbl:b_diagnostig_det}' maxlen='10'/>
+	<parameter id='smn_componentes_rf' type='integer' required='false' label='${lbl:b_component}' maxlen='10'/>
+	<parameter id='smn_item_rf' type='integer' required='false' label='${lbl:b_item}' maxlen='10'/>
+</validator>

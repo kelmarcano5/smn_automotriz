@@ -1,0 +1,10 @@
+select
+		smn_automotriz.smn_no_registrados.smn_no_registrados_id,
+	${field}
+from
+	smn_automotriz.smn_no_registrados
+where
+		smn_automotriz.smn_no_registrados.smn_no_registrados_id is not null
+	${filter}
+	
+	

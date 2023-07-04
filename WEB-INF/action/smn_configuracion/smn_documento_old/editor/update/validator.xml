@@ -1,0 +1,10 @@
+<?xml version='1.0' encoding='ISO-8859-1'?>
+<validator onerror='/action/error/validation/ajax'>
+	<parameter id='smn_tipo_documento_id' type='integer' required='true' label='${lbl:b_tipo_documento}' maxlen='10'/>
+	<parameter id='smn_transaccion_general_rf' type='integer' required='true' label='${lbl:b_general_transaction}' maxlen='10'/>
+	<parameter id='doc_codigo' type='varchar' required='true' label='${lbl:b_codigo_documento}' maxlen='10'/>
+	<parameter id='doc_nombre' type='varchar' required='true' label='${lbl:b_nombre_documento}' maxlen='100'/>
+	<parameter id='id' type='integer' required='true' label='${lbl:b_tipo_documento}' maxlen='10'/>
+
+
+</validator>

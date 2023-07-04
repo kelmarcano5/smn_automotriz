@@ -1,0 +1,1 @@
+delete from smn_automotriz.smn_rel_plan_contrato WHERE smn_planes_id= ${fld:id}

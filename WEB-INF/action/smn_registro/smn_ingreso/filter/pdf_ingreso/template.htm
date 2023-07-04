@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Reporte de Ingreso Automotriz</title>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+	<link rel="stylesheet" type="text/css" href="${def:context}/dinamica_bkp.css" />
+	<link rel="stylesheet" type="text/css" href="${def:context}/main.css" />	
+	<script type="text/javascript" src="${def:context}/action/script"></script>
+	<script type="text/javascript" src="${def:context}/action/jquery"></script>
+   	<script type="text/javascript" src="${def:context}/action/jqueryi"></script>
+</head>
+<body>
+		<br>
+			<br>
+	<form id="facturas" style="width:1000px;">
+
+		<div align="center"><img src="${def:context}/images/Logo EGR Final-01.png" border="0" alt="" vspace="0" hspace="0" width="200" height="200"></div></img>
+		<br>
+		<div align="center" style=" font-weight: bold;">
+			INGRESO
+			FECHA: ${fld:igs_fecha_registro@dd-MM-yyyy}   
+		</div>
+		<!-- <br> -->
+		<table id="encabezado">
+			<br>
+			<thead>
+				<tr>
+					<td style=" font-weight: bold;">NUM. INGRESO:</td>
+					<td align='left'>${fld:igs_num_ingreso}</td>
+				</tr>
+				<tr>
+					<td style=" font-weight: bold;">EMPRESA:</td>
+					<td align='left'>${fld:smn_entidades_rf}</td>
+				</tr>
+				<tr>
+					<td style=" font-weight: bold;">CLIENTE:</td>
+					<td align='left'>${fld:smn_auxiliar_rf}</td>
+				</tr>
+				<tr>
+					<td style=" font-weight: bold;">CONTRATANTE:</td>
+					<td align='left'>${fld:contratante}</td>
+				</tr>
+				<tr>
+					<td style=" font-weight: bold;">PLACA:</td>
+					<td align='left'>${fld:placa}</td>
+				</tr>
+				<tr>
+					<td style=" font-weight: bold;">MARCA:</td>
+					<td align='left'>${fld:marca}</td>
+				</tr>
+				<tr>
+					<td style=" font-weight: bold;">MODELO:</td>
+					<td align='left'>${fld:modelo}</td>
+				</tr>
+				<tr>
+					<td style=" font-weight: bold;">DOCUMENTO:</td>
+					<td align='left'>${fld:smn_documento_id}</td>
+				</tr>
+				<tr>
+					<td style=" font-weight: bold;">KILOMETRAJE:</td>
+					<td align='left'>${fld:igs_kilometraje}</td>	
+				</tr>
+				<tr>
+					<td style=" font-weight: bold;">SERIAL BATERIA:</td>
+					<td align='left'>${fld:igs_serial_bateria}</td>	
+				</tr>
+				<tr>
+					<td style=" font-weight: bold;">ESTATUS:</td>
+					<td align='left'>${fld:igs_estatus_financiero}</td></tr>
+				<tr>
+					<td style=" font-weight: bold;">CORREO:</td>
+					<td align='left'>${fld:correo}</td>
+				</tr>
+				<tr>
+					<td style=" font-weight: bold;">TELEFONO:</td>
+					<td align='left'>${fld:telefono}</td>
+				</tr>
+				<tr>
+					<td style=" font-weight: bold;">DESCRIPCION:</td>
+					<td align='left' style=”text-align: justify;”>${fld:descripcion_sintoma}</td>
+				</tr> 
+				<tr>
+					<td style=" font-weight: bold;">OBSERVACIONES:</td>
+					<td align='left' style=”text-align: justify;”>${fld:descripcion_observaciones}</td>	
+				</tr>
+				<br>
+			</thead>
+			<tbody>
+
+				
+
+			</tbody>
+		</table>
+
+	<br>
+	<!-- <br>
+
+		<table class="record2" style="width:95%;" >
+			<thead>
+				<tr class="bo">
+					<td align="left">Ingreso</td>
+					<td align="center">Descripcion Sintoma</td>
+					<td>Servicio</td>
+					<td>Descripcion del Servicio</td>
+					<td align="right">Precio MA</td>
+					<td align="right">Monto MA</td>
+				</tr>
+			</thead>
+			<tbody>
+				<rows>
+					<tr>
+						<td align="center">${fld:smn_ingresos_mov_id}</td>
+						<td>${fld:smn_servicios_rf}</td>
+						<td>${fld:smn_componente_rf}</td>
+						<td align="center">${fld:inm_cantidad@#,###,##0.00}</td>
+						<td align="right">${fld:inm_precio_ma@#,###,##0.00}$</td>
+						<td align="right">${fld:inm_monto_ma@#,###,##0.00}$</td>
+					</tr>
+				</rows>
+			</tbody>
+			
+			<tr>
+				<td></td>
+				<td></td>
+				<td></td>
+				<td>TOTALES</td>
+				<td></td>
+				 <td align="right">${fld:precioma@#,###,##0.00}$</td> 
+				<td align="right">${fld:montoma@#,###,##0.00}$</td>
+				<td align="right"></td>
+				<td align="right">${fld:descuentoma@#,###,##0.00}$</td>
+				<td align="right">${fld:netoma@#,###,##0.00}$</td>
+			</tr>
+		</table>
+	<br> -->
+	<br>
+		<!-- <div align="center">
+			<button id="imprimir" onclick="imprimir();">Imprimir</button>
+		</div> -->
+	</form>
+</body>
+</html>
+
+<script type="text/javascript" >
+  	onload = function() {
+  		//document.getElementById('imprimir').style.display='none';
+  		$('#facturas').printThis();
+  	}
+</script>
+
+

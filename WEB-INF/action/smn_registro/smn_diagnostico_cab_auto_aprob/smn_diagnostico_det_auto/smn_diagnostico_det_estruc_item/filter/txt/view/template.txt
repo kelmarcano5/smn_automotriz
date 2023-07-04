@@ -1,0 +1,3 @@
+<rows>
+smn_componentes_rf="${fld:smn_componentes_rf}"    smn_diagnostico_det_auto_id="${fld:smn_diagnostico_det_auto_id}"    
+</rows>

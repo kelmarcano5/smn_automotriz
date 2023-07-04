@@ -1,0 +1,27 @@
+select
+		smn_automotriz.smn_documento.smn_persona_id,
+	smn_automotriz.smn_documento.doc_categoria,
+	smn_automotriz.smn_documento.doc_tipo_documento,
+	smn_automotriz.smn_documento.doc_codigo,
+	smn_automotriz.smn_documento.doc_descripcion,
+	smn_automotriz.smn_documento.doc_fecha_emision,
+	smn_automotriz.smn_documento.doc_fecha_venc,
+	smn_automotriz.smn_documento.doc_filename,
+	smn_automotriz.smn_documento.doc_content_type,
+	smn_automotriz.smn_documento.doc_image_size,
+	smn_automotriz.smn_documento.doc_image_data,
+	smn_automotriz.smn_documento.doc_verificado,
+	smn_automotriz.smn_documento.doc_observ_verif,
+	smn_automotriz.smn_documento.doc_aprobado,
+	smn_automotriz.smn_documento.doc_observ_aprob,
+	smn_automotriz.smn_documento.doc_fecha_registro,
+	smn_automotriz.smn_documento.smn_tipo_documento_id,
+	smn_automotriz.smn_documento.smn_documento_general_rf,
+	smn_automotriz.smn_documento.doc_codigo,
+	smn_automotriz.smn_documento.doc_nombre,
+	smn_automotriz.smn_documento.doc_secuencia,
+	smn_automotriz.smn_documento.doc_fecha_registro
+from
+	smn_automotriz.smn_documento 
+where
+	smn_automotriz.smn_documento.smn_documento_id = ${fld:id}

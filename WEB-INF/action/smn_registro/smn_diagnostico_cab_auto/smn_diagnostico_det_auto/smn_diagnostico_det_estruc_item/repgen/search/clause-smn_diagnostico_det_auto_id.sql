@@ -1,0 +1,2 @@
+ and
+ 	smn_automotriz.smn_diagnostico_det_estruc_item.smn_diagnostico_det_auto_id=${fld:smn_diagnostico_det_auto_id}

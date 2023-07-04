@@ -1,0 +1,1 @@
+select smn_automotriz.smn_documento.doc_maneja_moneda_alt as alterna from smn_automotriz.smn_documento where  smn_automotriz.smn_documento.doc_codigo = 'IN01'

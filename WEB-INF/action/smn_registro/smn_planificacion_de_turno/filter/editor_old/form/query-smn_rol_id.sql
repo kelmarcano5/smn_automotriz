@@ -1,0 +1,1 @@
+select smn_automotriz.smn_rol.smn_rol_id as id, smn_automotriz.smn_rol.smn_usuario_id || ' - ' || smn_automotriz.smn_rol.rol_tipo as item from smn_automotriz.smn_rol order by smn_automotriz.smn_rol.rol_tipo
