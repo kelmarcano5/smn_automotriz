@@ -3,12 +3,13 @@
 
 <head>
 
-<link rel="stylesheet" type="text/css" href="${def:context}/dinamica_bkp.css" />
-	<link rel="stylesheet" type="text/css" href="${def:context}/main.css" />	
-	<!--biblioteca generica JS/Dinamica-->
-	<script type="text/javascript" src="${def:context}/action/script">
-	</script>
+    <link rel="stylesheet" type="text/css" href="${def:context}/dinamica_bkp.css" />
+    <link rel="stylesheet" type="text/css" href="${def:context}/main.css" />
+    <link rel="stylesheet" type="text/css" href="${def:context}/select2.min.css" />
 
+    <script type="text/javascript" src="${def:context}/action/script"></script>
+    <script type="text/javascript" src="${def:context}/action/jquery"></script>
+    <script type="text/javascript" src="${def:context}/action/select2"></script>
 </head>
 
 <body>
@@ -41,7 +42,7 @@
 		<tr>
 			<td>${lbl:b_entidades}*</td>
 			<td>
-				<select name="smn_entidades_id" id="smn_entidades_id" onchange="chgCombo1(smn_entidades_id.options[smn_entidades_id.selectedIndex].text,'smn_entidades_id_name');chgCombo4(smn_entidades_id.options[smn_entidades_id.selectedIndex].text,'smn_entidades_id_name');">
+				<select class="select2-ks" name="smn_entidades_id" id="smn_entidades_id" onchange="chgCombo1(smn_entidades_id.options[smn_entidades_id.selectedIndex].text,'smn_entidades_id_name');chgCombo4(smn_entidades_id.options[smn_entidades_id.selectedIndex].text,'smn_entidades_id_name');">
 					<option value="">[Cualquiera]</option>
 					<smn_entidades_id_rows>
 					<option value="${fld:id}">${fld:item}</option>
@@ -55,7 +56,7 @@
 		<tr>
 			<td>${lbl:b_sucursales}*</td>
 			<td>
-				<select name="smn_sucursales_id" id="smn_sucursales_id" onchange="chgCombo2(smn_sucursales_id.options[smn_sucursales_id.selectedIndex].text,'smn_sucursales_id_name');">
+				<select class="select2-ks" name="smn_sucursales_id" id="smn_sucursales_id" onchange="chgCombo2(smn_sucursales_id.options[smn_sucursales_id.selectedIndex].text,'smn_sucursales_id_name');">
 					<option value="">[Cualquiera]</option>
 					<smn_sucursales_id_rows>
 					<option value="${fld:id}">${fld:item}</option>
@@ -69,7 +70,7 @@
 		<tr>
 			<td>${lbl:b_area_servicio}*</td>
 			<td>
-				<select name="smn_area_id" id="smn_area_id" onchange="chgCombo(smn_area_id.options[smn_area_id.selectedIndex].text,'smn_area_id_name');">
+				<select class="select2-ks" name="smn_area_id" id="smn_area_id" onchange="chgCombo(smn_area_id.options[smn_area_id.selectedIndex].text,'smn_area_id_name');">
 					<option value="">[Cualquiera]</option>
 					<smn_area_id_rows>
 					<option value="${fld:id}">${fld:item}</option>
@@ -83,7 +84,7 @@
 		<tr style="display:none">
 		<td>${lbl:b_unidad_servicio}*</td>
 		<td>
-			<select name="smn_unidad_servicio_rf" id="smn_unidad_servicio_rf" onchange="chgCombo(smn_unidad_servicio_rf.options[smn_unidad_servicio_rf.selectedIndex].text,'smn_unidad_servicio_rf_name');">
+			<select class="select2-ks" name="smn_unidad_servicio_rf" id="smn_unidad_servicio_rf" onchange="chgCombo(smn_unidad_servicio_rf.options[smn_unidad_servicio_rf.selectedIndex].text,'smn_unidad_servicio_rf_name');">
 				<option value="">[Cualquiera]</option>
 				<smn_unidad_servicio_rf_rows>
 				<option value="${fld:id}">${fld:item}</option>
@@ -119,6 +120,8 @@
 		setElementFirstIndex('smn_sucursales_id');
 		setElementFirstIndex('smn_area_id');
 		setElementFirstIndex('smn_unidad_servicio_rf');
+
+		$('.select2-ks').select2();
 
 		if (id!="")
 			edit(id);
@@ -215,7 +218,7 @@
 	{
 
 		uri = "${def:context}${def:actionroot}/../smn_ingreso_cola_virtual/formIngresoCola?entidad_prestador="+entidad+"&sucursal_prestador="+sucursal+"&smn_area_servicio="+area;
-		openDialog("editor5", uri, 1150, 650);
+		openDialog("editor5", uri, 750, 450);
 		//alert(uri);
 	}
 
